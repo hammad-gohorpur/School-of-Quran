@@ -1,1455 +1,2244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>School of Quran | Tajweed • Nazira • Hifzul Quran</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #fbf8f1;
-      color: #29332d;
-      line-height: 1.7;
-      transition: direction 0.2s;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* Navigation */
-
-    nav {
-      background: #123b2a;
-      padding: 16px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      color: #f4d58d;
-      font-size: 21px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      font-size: 14px;
-    }
-
-    /* Language */
-
-    .language-switcher {
-      display: flex;
-      gap: 5px;
-    }
-
-    .language-switcher button {
-      border: 1px solid rgba(244,213,141,0.6);
-      background: transparent;
-      color: white;
-      padding: 5px 9px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .language-switcher button:hover,
-    .language-switcher button.active {
-      background: #d5a84c;
-      color: #173b2b;
-    }
-
-    /* Hero */
-
-    .hero {
-      background:
-        linear-gradient(rgba(18,59,42,0.90), rgba(18,59,42,0.90));
-      color: white;
-      text-align: center;
-      padding: 85px 20px 90px;
-    }
-
-    .arabic {
-      font-size: 38px;
-      color: #f4d58d;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-size: 20px;
-      color: #f4d58d;
-      margin-bottom: 18px;
-    }
-
-    .hero-description {
-      max-width: 700px;
-      margin: auto;
-      font-size: 17px;
-      color: #f2f2f2;
-    }
-
-    .buttons {
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 27px;
-      border-radius: 30px;
-      margin: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
-      background: #d5a84c;
-      color: #173b2b;
-    }
-
-    .btn-secondary {
-      border: 1px solid #f4d58d;
-      color: white;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* General sections */
-
-    .section {
-      max-width: 1050px;
-      margin: auto;
-      padding: 70px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      color: #123b2a;
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #68736d;
-    }
-
-    /* Courses */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      padding: 30px 22px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
-      border-top: 4px solid #d5a84c;
-    }
-
-    .card-icon {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      color: #123b2a;
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #626b66;
-      font-size: 15px;
-    }
-
-    /* About */
-
-    .about {
-      background: #eef3ed;
-    }
-
-    .about-box {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      font-size: 17px;
-    }
-
-    .highlight {
-      color: #123b2a;
-      font-weight: bold;
-    }
-
-    /* Student age */
-
-    .age-section {
-      background: white;
-    }
-
-    .age-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .age-card {
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      background: #fbf8f1;
-      border: 1px solid #e5dcc9;
-    }
-
-    .age-card h3 {
-      color: #123b2a;
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .age-number {
-      font-size: 30px;
-      font-weight: bold;
-      color: #b38329;
-    }
-
-    /* Fees */
-
-    .fee-table {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
-    }
-
-    .fee-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 25px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .fee-row:last-child {
-      border-bottom: none;
-    }
-
-    .fee-name {
-      font-weight: bold;
-    }
-
-    .fee-price {
-      color: #b38329;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    /* Schedule */
-
-    .schedule-box {
-      max-width: 750px;
-      margin: auto;
-      background: #123b2a;
-      color: white;
-      padding: 35px;
-      border-radius: 18px;
-      text-align: center;
-    }
-
-    .schedule-box h3 {
-      color: #f4d58d;
-      margin-bottom: 12px;
-    }
-
-    /* Teachers */
-
-    .teacher-count {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .teacher-box {
-      text-align: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
-
-    .teacher-box h3 {
-      color: #123b2a;
-      margin-bottom: 10px;
-    }
-
-    .teacher-number {
-      font-size: 42px;
-      color: #b38329;
-      font-weight: bold;
-    }
-
-    /* Mission */
-
-    .mission {
-      background: #123b2a;
-      color: white;
-    }
-
-    .mission .section-title h2 {
-      color: #f4d58d;
-    }
-
-    .mission .section-title p {
-      color: #d9e1dc;
-    }
-
-    .mission-content {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      font-size: 17px;
-    }
-
-    /* Contact */
-
-    .contact-box {
-      text-align: center;
-      background: white;
-      padding: 40px 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .contact-box h3 {
-      color: #123b2a;
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .whatsapp {
-      display: inline-block;
-      margin-top: 20px;
-      background: #1d7a4b;
-      color: white;
-      padding: 13px 25px;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-
-    /* Footer */
-
-    footer {
-      background: #10251c;
-      color: #cfd8d2;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer strong {
-      color: #f4d58d;
-    }
-
-    /* Arabic RTL */
-
-    body.rtl {
-      direction: rtl;
-    }
-
-    body.rtl .nav-inner {
-      flex-direction: row-reverse;
-    }
-
-    body.rtl .nav-right {
-      flex-direction: row-reverse;
-    }
-
-    body.rtl .nav-links {
-      flex-direction: row-reverse;
-    }
-
-    body.rtl .fee-row {
-      flex-direction: row-reverse;
-    }
-
-    /* Mobile */
-
-    @media (max-width: 700px) {
-
-      .nav-inner {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .nav-right {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .nav-links {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero {
-        padding: 65px 18px 70px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .arabic {
-        font-size: 30px;
-      }
-
-      .hero-subtitle {
-        font-size: 17px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .age-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .teacher-count {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 55px 18px;
-      }
-
-      .section-title h2 {
-        font-size: 28px;
-      }
-
-      .fee-row {
-        padding: 17px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>School of Quran | Tajweed • Nazira • Hifzul Quran</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#fbf8f1;
+  color:#29332d;
+  line-height:1.7;
+}
+
+a{
+  text-decoration:none;
+}
+
+nav{
+  background:#123b2a;
+  padding:16px 20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 12px rgba(0,0,0,.12);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.logo{
+  color:#f4d58d;
+  font-size:21px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  color:white;
+  font-size:14px;
+}
+
+.language-switcher{
+  display:flex;
+  gap:5px;
+}
+
+.language-switcher button{
+  border:1px solid rgba(244,213,141,.6);
+  background:transparent;
+  color:white;
+  padding:5px 9px;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.language-switcher button.active,
+.language-switcher button:hover{
+  background:#d5a84c;
+  color:#173b2b;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(rgba(18,59,42,.92),rgba(18,59,42,.92));
+  color:white;
+  text-align:center;
+  padding:85px 20px 90px;
+}
+
+.arabic{
+  font-size:38px;
+  color:#f4d58d;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:12px;
+}
+
+.hero-subtitle{
+  font-size:20px;
+  color:#f4d58d;
+  margin-bottom:18px;
+}
+
+.hero-description{
+  max-width:700px;
+  margin:auto;
+  font-size:17px;
+  color:#f2f2f2;
+}
+
+.buttons{
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 27px;
+  border-radius:30px;
+  margin:5px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:#d5a84c;
+  color:#173b2b;
+}
+
+.btn-secondary{
+  border:1px solid #f4d58d;
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* GENERAL */
+
+.section{
+  max-width:1050px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title h2{
+  color:#123b2a;
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.section-title p{
+  color:#68736d;
+}
+
+/* COURSES */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  background:white;
+  padding:30px 22px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 5px 25px rgba(0,0,0,.07);
+  border-top:4px solid #d5a84c;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+}
+
+.card-icon{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.card h3{
+  color:#123b2a;
+  font-size:23px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#626b66;
+  font-size:15px;
+}
+
+/* ABOUT */
+
+.about{
+  background:#eef3ed;
+}
+
+.about-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+  font-size:17px;
+}
+
+.highlight{
+  color:#123b2a;
+  font-weight:bold;
+}
+
+/* AGE */
+
+.age-section{
+  background:white;
+}
+
+.age-cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  max-width:800px;
+  margin:auto;
+}
+
+.age-card{
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  background:#fbf8f1;
+  border:1px solid #e5dcc9;
+}
+
+.age-card h3{
+  color:#123b2a;
+  font-size:23px;
+}
+
+.age-number{
+  font-size:30px;
+  font-weight:bold;
+  color:#b38329;
+}
+
+/* FEES */
+
+.fee-table{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 25px rgba(0,0,0,.07);
+}
+
+.fee-row{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 25px;
+  border-bottom:1px solid #eee;
+}
+
+.fee-row:last-child{
+  border-bottom:none;
+}
+
+.fee-name{
+  font-weight:bold;
+}
+
+.fee-price{
+  color:#b38329;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* SCHEDULE */
+
+.schedule-box{
+  max-width:750px;
+  margin:auto;
+  background:#123b2a;
+  color:white;
+  padding:35px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.schedule-box h3{
+  color:#f4d58d;
+  margin-bottom:12px;
+}
+
+/* TEACHER SLIDER */
+
+.teacher-slider{
+  max-width:850px;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.teacher-track{
+  display:flex;
+  transition:transform .6s ease;
+}
+
+.teacher-slide{
+  min-width:100%;
+  padding:45px 25px;
+  background:white;
+  text-align:center;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.teacher-photo{
+  width:105px;
+  height:105px;
+  margin:auto;
+  border-radius:50%;
+  background:#123b2a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#f4d58d;
+  font-size:42px;
+  border:5px solid #d5a84c;
+}
+
+.teacher-slide h3{
+  color:#123b2a;
+  margin-top:18px;
+  font-size:24px;
+}
+
+.teacher-role{
+  color:#b38329;
+  font-weight:bold;
+}
+
+.teacher-slide p{
+  max-width:600px;
+  margin:10px auto 0;
+  color:#626b66;
+}
+
+.slider-buttons{
+  text-align:center;
+  margin-top:18px;
+}
+
+.slider-buttons button{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#123b2a;
+  color:white;
+  cursor:pointer;
+  margin:4px;
+}
+
+.slider-buttons button:hover{
+  background:#b38329;
+}
+
+/* TEACHER COUNT */
+
+.teacher-count{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  max-width:800px;
+  margin:35px auto 0;
+}
+
+.teacher-box{
+  text-align:center;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.teacher-box h3{
+  color:#123b2a;
+}
+
+.teacher-number{
+  font-size:42px;
+  color:#b38329;
+  font-weight:bold;
+}
+
+/* TEACHING METHOD */
+
+.method-section{
+  background:#eef3ed;
+}
+
+.method-slider{
+  max-width:850px;
+  margin:auto;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.method-slide{
+  display:none;
+  padding:45px 30px;
+  text-align:center;
+  animation:fadeIn .6s;
+}
+
+.method-slide.active{
+  display:block;
+}
+
+.method-icon{
+  font-size:55px;
+  margin-bottom:12px;
+}
+
+.method-slide h3{
+  color:#123b2a;
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.method-slide p{
+  max-width:650px;
+  margin:auto;
+  color:#626b66;
+}
+
+.method-dots{
+  text-align:center;
+  padding:18px;
+}
+
+.method-dot{
+  display:inline-block;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#d6c8a8;
+  margin:4px;
+  cursor:pointer;
+}
+
+.method-dot.active{
+  background:#b38329;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MISSION */
+
+.mission{
+  background:#123b2a;
+  color:white;
+}
+
+.mission .section-title h2{
+  color:#f4d58d;
+}
+
+.mission .section-title p{
+  color:#d9e1dc;
+}
+
+.mission-content{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+  font-size:17px;
+}
+
+/* ADMISSION */
+
+.admission-section{
+  background:white;
+}
+
+.admission-box{
+  max-width:800px;
+  margin:auto;
+  background:#fbf8f1;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  font-weight:bold;
+  color:#123b2a;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #d8d1c2;
+  border-radius:8px;
+  background:white;
+  font-size:15px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#b38329;
+}
+
+.form-group textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.form-submit{
+  text-align:center;
+  margin-top:25px;
+}
+
+.submit-btn{
+  border:none;
+  padding:14px 35px;
+  border-radius:30px;
+  background:#123b2a;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:#b38329;
+}
+
+.form-message{
+  display:none;
+  margin-top:18px;
+  padding:12px;
+  border-radius:8px;
+  background:#dff1e4;
+  color:#176238;
+  text-align:center;
+}
+
+/* CONTACT */
+
+.contact-box{
+  text-align:center;
+  background:white;
+  padding:40px 25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.07);
+  max-width:700px;
+  margin:auto;
+}
+
+.contact-box h3{
+  color:#123b2a;
+  font-size:25px;
+}
+
+.whatsapp{
+  display:inline-block;
+  margin-top:20px;
+  background:#1d7a4b;
+  color:white;
+  padding:13px 25px;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+  background:#10251c;
+  color:#cfd8d2;
+  text-align:center;
+  padding:30px 20px;
+}
+
+footer strong{
+  color:#f4d58d;
+}
+
+/* RTL */
+
+body.rtl{
+  direction:rtl;
+}
+
+body.rtl .nav-inner{
+  flex-direction:row-reverse;
+}
+
+body.rtl .nav-right{
+  flex-direction:row-reverse;
+}
+
+body.rtl .nav-links{
+  flex-direction:row-reverse;
+}
+
+body.rtl .fee-row{
+  flex-direction:row-reverse;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .nav-inner{
+    flex-direction:column;
+  }
+
+  .nav-right{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .nav-links{
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero{
+    padding:65px 18px 70px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .arabic{
+    font-size:30px;
+  }
+
+  .cards,
+  .age-cards,
+  .teacher-count,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+  .section{
+    padding:55px 18px;
+  }
+
+  .section-title h2{
+    font-size:28px;
+  }
+
+  .admission-box{
+    padding:22px 17px;
+  }
+
+  .fee-row{
+    padding:17px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
+<!-- NAVIGATION -->
 
-  <nav>
-    <div class="nav-inner">
+<nav>
+<div class="nav-inner">
 
-      <div class="logo" data-i18n="logo">School of Quran</div>
+<div class="logo" data-i18n="logo">School of Quran</div>
 
-      <div class="nav-right">
+<div class="nav-right">
 
-        <div class="nav-links">
-          <a href="#courses" data-i18n="navCourses">Courses</a>
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#fees" data-i18n="navFees">Fees</a>
-          <a href="#teachers" data-i18n="navTeachers">Teachers</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-        </div>
+<div class="nav-links">
+<a href="#courses" data-i18n="navCourses">Courses</a>
+<a href="#about" data-i18n="navAbout">About</a>
+<a href="#teachers" data-i18n="navTeachers">Teachers</a>
+<a href="#admission" data-i18n="navAdmission">Admission</a>
+<a href="#contact" data-i18n="navContact">Contact</a>
+</div>
 
-        <div class="language-switcher">
-          <button onclick="changeLanguage('bn')" id="bnBtn">বাংলা</button>
-          <button onclick="changeLanguage('en')" id="enBtn" class="active">English</button>
-          <button onclick="changeLanguage('ar')" id="arBtn">العربية</button>
-        </div>
+<div class="language-switcher">
+<button onclick="changeLanguage('bn')" id="bnBtn">বাংলা</button>
+<button onclick="changeLanguage('en')" id="enBtn" class="active">English</button>
+<button onclick="changeLanguage('ar')" id="arBtn">العربية</button>
+</div>
 
-      </div>
+</div>
+</div>
+</nav>
 
-    </div>
-  </nav>
 
+<!-- HERO -->
 
-  <!-- Hero -->
+<header class="hero">
 
-  <header class="hero">
+<div class="arabic">وَقُل رَّبِّ زِدْنِي عِلْمًا</div>
 
-    <div class="arabic">وَقُل رَّبِّ زِدْنِي عِلْمًا</div>
+<h1 data-i18n="heroTitle">School of Quran</h1>
 
-    <h1 data-i18n="heroTitle">School of Quran</h1>
+<div class="hero-subtitle" data-i18n="heroSubtitle">
+Tajweed • Nazira • Hifzul Quran
+</div>
 
-    <div class="hero-subtitle" data-i18n="heroSubtitle">
-      Tajweed • Nazira • Hifzul Quran
-    </div>
+<p class="hero-description" data-i18n="heroDescription">
+An online Quran learning academy dedicated to helping students learn,
+recite and memorize the Holy Quran with proper guidance.
+</p>
 
-    <p class="hero-description" data-i18n="heroDescription">
-      An online Quran learning academy dedicated to helping
-      students learn, recite and memorize the Holy Quran
-      with proper guidance.
-    </p>
+<div class="buttons">
 
-    <div class="buttons">
-      <a href="#contact" class="btn btn-primary" data-i18n="contactUs">
-        Contact Us
-      </a>
+<a href="#admission" class="btn btn-primary" data-i18n="applyNow">
+Apply Now
+</a>
 
-      <a href="#courses" class="btn btn-secondary" data-i18n="exploreCourses">
-        Explore Courses
-      </a>
-    </div>
+<a href="#courses" class="btn btn-secondary" data-i18n="exploreCourses">
+Explore Courses
+</a>
 
-  </header>
+</div>
 
+</header>
 
-  <!-- Courses -->
 
-  <section class="section" id="courses">
+<!-- COURSES -->
 
-    <div class="section-title">
-      <h2 data-i18n="coursesTitle">Our Courses</h2>
-      <p data-i18n="coursesSubtitle">
-        Learn the Quran with proper guidance and structured education.
-      </p>
-    </div>
+<section class="section" id="courses">
 
-    <div class="cards">
+<div class="section-title">
 
-      <div class="card">
-        <div class="card-icon">📖</div>
+<h2 data-i18n="coursesTitle">Our Courses</h2>
 
-        <h3 data-i18n="tajweedTitle">Tajweed</h3>
+<p data-i18n="coursesSubtitle">
+Learn the Quran with proper guidance and structured education.
+</p>
 
-        <p data-i18n="tajweedText">
-          Learn the rules of Quranic pronunciation
-          and improve the quality of your recitation.
-        </p>
-      </div>
+</div>
 
+<div class="cards">
 
-      <div class="card">
-        <div class="card-icon">📚</div>
+<div class="card">
+<div class="card-icon">📖</div>
+<h3 data-i18n="tajweedTitle">Tajweed</h3>
+<p data-i18n="tajweedText">
+Learn the rules of Quranic pronunciation and improve the quality of your recitation.
+</p>
+</div>
 
-        <h3 data-i18n="naziraTitle">Nazira</h3>
+<div class="card">
+<div class="card-icon">📚</div>
+<h3 data-i18n="naziraTitle">Nazira</h3>
+<p data-i18n="naziraText">
+Develop fluent and accurate Quran reading with proper pronunciation and guidance.
+</p>
+</div>
 
-        <p data-i18n="naziraText">
-          Develop fluent and accurate Quran reading
-          with proper pronunciation and guidance.
-        </p>
-      </div>
+<div class="card">
+<div class="card-icon">🌙</div>
+<h3 data-i18n="hifzTitle">Hifzul Quran</h3>
+<p data-i18n="hifzText">
+Memorize the Holy Quran through a structured and consistent learning program.
+</p>
+</div>
 
+</div>
+</section>
 
-      <div class="card">
-        <div class="card-icon">🌙</div>
 
-        <h3 data-i18n="hifzTitle">Hifzul Quran</h3>
+<!-- ABOUT -->
 
-        <p data-i18n="hifzText">
-          Memorize the Holy Quran through a structured
-          and consistent learning program.
-        </p>
-      </div>
+<section class="section about" id="about">
 
-    </div>
+<div class="section-title">
 
-  </section>
+<h2 data-i18n="aboutTitle">
+About School of Quran
+</h2>
 
+<p data-i18n="aboutSubtitle">
+Quran education made accessible for everyone.
+</p>
 
-  <!-- About -->
+</div>
 
-  <section class="section about" id="about">
+<div class="about-box">
 
-    <div class="section-title">
-      <h2 data-i18n="aboutTitle">About School of Quran</h2>
+<p>
+<span class="highlight">School of Quran</span>
+<span data-i18n="aboutText1">
+is an online Quran learning academy based in Sylhet, Bangladesh.
+</span>
+</p>
 
-      <p data-i18n="aboutSubtitle">
-        Quran education made accessible for everyone.
-      </p>
-    </div>
+<br>
 
-    <div class="about-box">
+<p data-i18n="aboutText2">
+Our educational levels include Tajweed, Nazira and Hifzul Quran.
+</p>
 
-      <p>
-        <span class="highlight" data-i18n="aboutName">
-          School of Quran
-        </span>
-        <span data-i18n="aboutText1">
-          is an online Quran learning academy based in
-          Sylhet, Bangladesh.
-        </span>
-      </p>
+<br>
 
-      <br>
+<p data-i18n="aboutText3">
+We aim to bring correct Quranic recitation and Quranic knowledge
+to people in an organized and accessible way.
+</p>
 
-      <p>
-        <span data-i18n="aboutText2">
-          Our educational levels include
-        </span>
+</div>
+</section>
 
-        <span class="highlight" data-i18n="aboutCourses">
-          Tajweed, Nazira and Hifzul Quran.
-        </span>
-      </p>
 
-      <br>
+<!-- AGE -->
 
-      <p data-i18n="aboutText3">
-        We aim to bring correct Quranic recitation
-        and Quranic knowledge to people in an organized
-        and accessible way.
-      </p>
+<section class="section age-section">
 
-    </div>
+<div class="section-title">
 
-  </section>
+<h2 data-i18n="whoTitle">
+Who Can Join?
+</h2>
 
+<p data-i18n="whoSubtitle">
+We provide Quran education for both male and female students.
+</p>
 
-  <!-- Students -->
+</div>
 
-  <section class="section age-section">
+<div class="age-cards">
 
-    <div class="section-title">
+<div class="age-card">
 
-      <h2 data-i18n="whoTitle">Who Can Join?</h2>
+<h3 data-i18n="maleStudents">
+Male Students
+</h3>
 
-      <p data-i18n="whoSubtitle">
-        We provide Quran education for both male and female students.
-      </p>
+<div class="age-number">7–40</div>
 
-    </div>
+<p data-i18n="years">
+Years
+</p>
 
-    <div class="age-cards">
+</div>
 
-      <div class="age-card">
+<div class="age-card">
 
-        <h3 data-i18n="maleStudents">
-          Male Students
-        </h3>
+<h3 data-i18n="femaleStudents">
+Female Students
+</h3>
 
-        <div class="age-number">7–40 Years</div>
+<div class="age-number">7–30</div>
 
-        <p data-i18n="maleDescription">
-          Quran education for boys and men.
-        </p>
+<p data-i18n="years">
+Years
+</p>
 
-      </div>
+</div>
 
+</div>
+</section>
 
-      <div class="age-card">
 
-        <h3 data-i18n="femaleStudents">
-          Female Students
-        </h3>
+<!-- FEES -->
 
-        <div class="age-number">7–30 Years</div>
+<section class="section" id="fees">
 
-        <p data-i18n="femaleDescription">
-          Quran education for girls and women.
-        </p>
+<div class="section-title">
 
-      </div>
+<h2 data-i18n="feesTitle">
+Fee Structure
+</h2>
 
-    </div>
+<p data-i18n="feesSubtitle">
+Simple and transparent fees.
+</p>
 
-  </section>
+</div>
 
+<div class="fee-table">
 
-  <!-- Fees -->
+<div class="fee-row">
 
-  <section class="section" id="fees">
+<span class="fee-name" data-i18n="admissionFee">
+Admission Fee
+</span>
 
-    <div class="section-title">
+<span class="fee-price">৳2,250</span>
 
-      <h2 data-i18n="feesTitle">
-        Fee Structure
-      </h2>
+</div>
 
-      <p data-i18n="feesSubtitle">
-        Simple and transparent fees.
-      </p>
+<div class="fee-row">
 
-    </div>
+<span class="fee-name" data-i18n="monthlyFee">
+Monthly Fee
+</span>
 
-    <div class="fee-table">
+<span class="fee-price">৳2,500</span>
 
-      <div class="fee-row">
+</div>
 
-        <span class="fee-name" data-i18n="admissionFee">
-          Admission Fee
-        </span>
+</div>
+</section>
 
-        <span class="fee-price">৳2,250</span>
 
-      </div>
+<!-- CLASS SCHEDULE -->
 
+<section class="section">
 
-      <div class="fee-row">
+<div class="section-title">
 
-        <span class="fee-name" data-i18n="monthlyFee">
-          Monthly Fee
-        </span>
+<h2 data-i18n="scheduleTitle">
+Class Schedule
+</h2>
 
-        <span class="fee-price">৳2,500</span>
+<p data-i18n="scheduleSubtitle">
+Flexible learning according to your convenience.
+</p>
 
-      </div>
+</div>
 
-    </div>
+<div class="schedule-box">
 
-  </section>
+<h3 data-i18n="flexibleBatches">
+Flexible Batches
+</h3>
 
+<p data-i18n="scheduleText">
+Classes are arranged in batches according to the convenience
+and availability of students.
+</p>
 
-  <!-- Class Schedule -->
+</div>
+</section>
 
-  <section class="section">
 
-    <div class="section-title">
+<!-- TEACHERS -->
 
-      <h2 data-i18n="scheduleTitle">
-        Class Schedule
-      </h2>
+<section class="section" id="teachers">
 
-      <p data-i18n="scheduleSubtitle">
-        Flexible learning according to your convenience.
-      </p>
+<div class="section-title">
 
-    </div>
+<h2 data-i18n="teachersTitle">
+Our Teachers
+</h2>
 
-    <div class="schedule-box">
+<p data-i18n="teachersSubtitle">
+Experienced Quran educators dedicated to teaching.
+</p>
 
-      <h3 data-i18n="flexibleBatches">
-        Flexible Batches
-      </h3>
+</div>
 
-      <p data-i18n="scheduleText">
-        Classes are arranged in batches according to
-        the convenience and availability of students.
-      </p>
 
-    </div>
+<div class="teacher-slider">
 
-  </section>
+<div class="teacher-track" id="teacherTrack">
 
+<div class="teacher-slide">
 
-  <!-- Teachers -->
+<div class="teacher-photo">👨‍🏫</div>
 
-  <section class="section" id="teachers">
+<h3 data-i18n="teacher1">
+Teacher 01
+</h3>
 
-    <div class="section-title">
+<div class="teacher-role" data-i18n="maleTeacher">
+Hafiz • Maulana • Mufti
+</div>
 
-      <h2 data-i18n="teachersTitle">
-        Our Teachers
-      </h2>
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-      <p data-i18n="teachersSubtitle">
-        Experienced Quran educators dedicated to teaching.
-      </p>
+</div>
 
-    </div>
 
-    <div class="teacher-count">
+<div class="teacher-slide">
 
-      <div class="teacher-box">
+<div class="teacher-photo">👨‍🏫</div>
 
-        <div class="teacher-number">4</div>
+<h3 data-i18n="teacher2">
+Teacher 02
+</h3>
 
-        <h3 data-i18n="maleTeachers">
-          Male Teachers
-        </h3>
+<div class="teacher-role" data-i18n="maleTeacher">
+Hafiz • Maulana • Mufti
+</div>
 
-        <p data-i18n="maleTeacherType">
-          Hafiz • Maulana • Mufti
-        </p>
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="teacher-box">
+<div class="teacher-slide">
 
-        <div class="teacher-number">3</div>
+<div class="teacher-photo">👨‍🏫</div>
 
-        <h3 data-i18n="femaleTeachers">
-          Female Teachers
-        </h3>
+<h3 data-i18n="teacher3">
+Teacher 03
+</h3>
 
-        <p data-i18n="femaleTeacherType">
-          Hafiza • Alima
-        </p>
+<div class="teacher-role" data-i18n="maleTeacher">
+Hafiz • Maulana • Mufti
+</div>
 
-      </div>
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-    </div>
+</div>
 
-  </section>
 
+<div class="teacher-slide">
 
-  <!-- Mission -->
+<div class="teacher-photo">👨‍🏫</div>
 
-  <section class="mission">
+<h3 data-i18n="teacher4">
+Teacher 04
+</h3>
 
-    <div class="section">
+<div class="teacher-role" data-i18n="maleTeacher">
+Hafiz • Maulana • Mufti
+</div>
 
-      <div class="section-title">
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-        <h2 data-i18n="missionTitle">
-          Our Mission
-        </h2>
+</div>
 
-      </div>
 
-      <div class="mission-content">
+<div class="teacher-slide">
 
-        <p data-i18n="missionText1">
-          Our goal is to deliver correct Quranic recitation
-          and Quranic knowledge to people from all walks of life.
-        </p>
+<div class="teacher-photo">👩‍🏫</div>
 
-        <br>
+<h3 data-i18n="teacher5">
+Teacher 05
+</h3>
 
-        <p data-i18n="missionText2">
-          Many people cannot attend regular educational
-          institutions because of lack of time or opportunity.
-          We aim to bring structured, institutional-style
-          Quran education to them through flexible online learning.
-        </p>
+<div class="teacher-role" data-i18n="femaleTeacher">
+Hafiza • Alima
+</div>
 
-      </div>
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-    </div>
+</div>
 
-  </section>
 
+<div class="teacher-slide">
 
-  <!-- Contact -->
+<div class="teacher-photo">👩‍🏫</div>
 
-  <section class="section" id="contact">
+<h3 data-i18n="teacher6">
+Teacher 06
+</h3>
 
-    <div class="section-title">
+<div class="teacher-role" data-i18n="femaleTeacher">
+Hafiza • Alima
+</div>
 
-      <h2 data-i18n="contactTitle">
-        Contact Us
-      </h2>
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-      <p data-i18n="contactSubtitle">
-        We would be happy to hear from you.
-      </p>
+</div>
 
-    </div>
 
-    <div class="contact-box">
+<div class="teacher-slide">
 
-      <h3 data-i18n="contactSchool">
-        School of Quran
-      </h3>
+<div class="teacher-photo">👩‍🏫</div>
 
-      <p>
-        📍 <span data-i18n="sylhet">Sylhet, Bangladesh</span>
-      </p>
+<h3 data-i18n="teacher7">
+Teacher 07
+</h3>
 
-      <p>
-        📱 WhatsApp: +880 1790 056835
-      </p>
+<div class="teacher-role" data-i18n="femaleTeacher">
+Hafiza • Alima
+</div>
 
-      <a
-        href="https://wa.me/8801790056835"
-        class="whatsapp"
-        data-i18n="whatsappButton">
-        Contact on WhatsApp
-      </a>
+<p data-i18n="teacherText">
+Experienced in Quran education, Tajweed and Hifzul Quran.
+</p>
 
-      <p
-        style="margin-top:25px; color:#777;"
-        data-i18n="comingSoon">
-        Online admission form and social media links
-        will be added soon.
-      </p>
+</div>
 
-    </div>
+</div>
+</div>
 
-  </section>
 
+<div class="slider-buttons">
 
-  <!-- Footer -->
+<button onclick="moveTeacher(-1)">‹</button>
+<button onclick="moveTeacher(1)">›</button>
 
-  <footer>
+</div>
 
-    <p>
-      <strong data-i18n="footerName">
-        School of Quran
-      </strong>
-    </p>
 
-    <p data-i18n="footerCourses">
-      Tajweed • Nazira • Hifzul Quran
-    </p>
+<div class="teacher-count">
 
-    <p style="margin-top:12px;" data-i18n="copyright">
-      © 2026 School of Quran. All Rights Reserved.
-    </p>
+<div class="teacher-box">
 
-  </footer>
+<div class="teacher-number">4</div>
+
+<h3 data-i18n="maleTeachers">
+Male Teachers
+</h3>
+
+<p>Hafiz • Maulana • Mufti</p>
+
+</div>
+
+<div class="teacher-box">
+
+<div class="teacher-number">3</div>
+
+<h3 data-i18n="femaleTeachers">
+Female Teachers
+</h3>
+
+<p>Hafiza • Alima</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOW WE TEACH -->
+
+<section class="method-section">
+
+<div class="section">
+
+<div class="section-title">
+
+<h2 data-i18n="methodTitle">
+How We Teach
+</h2>
+
+<p data-i18n="methodSubtitle">
+A structured and student-focused Quran learning system.
+</p>
+
+</div>
+
+
+<div class="method-slider">
+
+<div class="method-slide active">
+
+<div class="method-icon">🎯</div>
+
+<h3 data-i18n="method1Title">
+Assessment
+</h3>
+
+<p data-i18n="method1Text">
+Every student is assessed according to their current Quran reading
+and learning level before joining the appropriate class.
+</p>
+
+</div>
+
+
+<div class="method-slide">
+
+<div class="method-icon">📖</div>
+
+<h3 data-i18n="method2Title">
+Tajweed & Correct Recitation
+</h3>
+
+<p data-i18n="method2Text">
+Students learn pronunciation, articulation points and important
+rules of Quranic recitation step by step.
+</p>
+
+</div>
+
+
+<div class="method-slide">
+
+<div class="method-icon">🔁</div>
+
+<h3 data-i18n="method3Title">
+Daily Practice & Revision
+</h3>
+
+<p data-i18n="method3Text">
+Regular practice and revision help students maintain accuracy
+and consistency in their learning.
+</p>
+
+</div>
+
+
+<div class="method-slide">
+
+<div class="method-icon">🏆</div>
+
+<h3 data-i18n="method4Title">
+Progress Monitoring
+</h3>
+
+<p data-i18n="method4Text">
+Students' progress is monitored regularly so that teachers can
+identify weaknesses and provide appropriate guidance.
+</p>
+
+</div>
+
+
+<div class="method-dots">
+
+<span class="method-dot active" onclick="showMethod(0)"></span>
+<span class="method-dot" onclick="showMethod(1)"></span>
+<span class="method-dot" onclick="showMethod(2)"></span>
+<span class="method-dot" onclick="showMethod(3)"></span>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- MISSION -->
+
+<section class="mission">
+
+<div class="section">
+
+<div class="section-title">
+
+<h2 data-i18n="missionTitle">
+Our Mission
+</h2>
+
+</div>
+
+<div class="mission-content">
+
+<p data-i18n="missionText1">
+Our goal is to deliver correct Quranic recitation and Quranic
+knowledge to people from all walks of life.
+</p>
+
+<br>
+
+<p data-i18n="missionText2">
+Many people cannot attend regular educational institutions because
+of lack of time or opportunity. We aim to bring structured,
+institutional-style Quran education to them through flexible
+online learning.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ADMISSION FORM -->
+
+<section class="section admission-section" id="admission">
+
+<div class="section-title">
+
+<h2 data-i18n="admissionTitle">
+Online Admission
+</h2>
+
+<p data-i18n="admissionSubtitle">
+Fill in the form below to apply for admission.
+</p>
+
+</div>
+
+
+<div class="admission-box">
+
+<form id="admissionForm">
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label data-i18n="studentName">
+Student Name
+</label>
+
+<input
+type="text"
+id="studentName"
+required
+placeholder="Enter student name">
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="guardianName">
+Father / Guardian Name
+</label>
+
+<input
+type="text"
+id="guardianName"
+required
+placeholder="Enter father or guardian name">
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="age">
+Age
+</label>
+
+<input
+type="number"
+id="age"
+min="1"
+max="100"
+required
+placeholder="Age">
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="gender">
+Gender
+</label>
+
+<select id="gender" required>
+
+<option value="" data-i18n="selectGender">
+Select Gender
+</option>
+
+<option value="Male" data-i18n="male">
+Male
+</option>
+
+<option value="Female" data-i18n="female">
+Female
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="phone">
+Phone Number
+</label>
+
+<input
+type="tel"
+id="phone"
+required
+placeholder="+880...">
+
+</div>
+
+
+<div class="form-group">
+
+<label>WhatsApp</label>
+
+<input
+type="tel"
+id="whatsapp"
+placeholder="+880...">
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="course">
+Course
+</label>
+
+<select id="course" required>
+
+<option value="" data-i18n="selectCourse">
+Select Course
+</option>
+
+<option value="Tajweed" data-i18n="tajweedTitle">
+Tajweed
+</option>
+
+<option value="Nazira" data-i18n="naziraTitle">
+Nazira
+</option>
+
+<option value="Hifzul Quran" data-i18n="hifzTitle">
+Hifzul Quran
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="preferredTime">
+Preferred Class Time
+</label>
+
+<input
+type="text"
+id="preferredTime"
+placeholder="Example: After Maghrib">
+
+</div>
+
+
+<div class="form-group full">
+
+<label data-i18n="address">
+Address
+</label>
+
+<textarea
+id="address"
+placeholder="Enter your address"></textarea>
+
+</div>
+
+
+<div class="form-group full">
+
+<label data-i18n="notes">
+Additional Information
+</label>
+
+<textarea
+id="notes"
+placeholder="Any additional information"></textarea>
+
+</div>
+
+
+</div>
+
+
+<div class="form-submit">
+
+<button class="submit-btn" type="submit" data-i18n="submitApplication">
+Submit Application
+</button>
+
+</div>
+
+
+<div class="form-message" id="formMessage">
+Application submitted successfully.
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<div class="section-title">
+
+<h2 data-i18n="contactTitle">
+Contact Us
+</h2>
+
+<p data-i18n="contactSubtitle">
+We would be happy to hear from you.
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>School of Quran</h3>
+
+<p>📍 Sylhet, Bangladesh</p>
+
+<p>📱 WhatsApp: +880 1790 056835</p>
+
+<a
+href="https://wa.me/8801790056835"
+class="whatsapp"
+target="_blank"
+data-i18n="whatsappButton">
+Contact on WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+<strong>School of Quran</strong>
+</p>
+
+<p>
+Tajweed • Nazira • Hifzul Quran
+</p>
+
+<p style="margin-top:12px;">
+© 2026 School of Quran. All Rights Reserved.
+</p>
+
+</footer>
 
 
 <script>
 
+/* =========================
+   LANGUAGE SYSTEM
+========================= */
+
 const translations = {
 
-  en: {
+en:{
 
-    logo: "School of Quran",
+logo:"School of Quran",
 
-    navCourses: "Courses",
-    navAbout: "About",
-    navFees: "Fees",
-    navTeachers: "Teachers",
-    navContact: "Contact",
+navCourses:"Courses",
+navAbout:"About",
+navTeachers:"Teachers",
+navAdmission:"Admission",
+navContact:"Contact",
 
-    heroTitle: "School of Quran",
-    heroSubtitle: "Tajweed • Nazira • Hifzul Quran",
+heroTitle:"School of Quran",
+heroSubtitle:"Tajweed • Nazira • Hifzul Quran",
 
-    heroDescription:
-      "An online Quran learning academy dedicated to helping students learn, recite and memorize the Holy Quran with proper guidance.",
+heroDescription:
+"An online Quran learning academy dedicated to helping students learn, recite and memorize the Holy Quran with proper guidance.",
 
-    contactUs: "Contact Us",
-    exploreCourses: "Explore Courses",
+applyNow:"Apply Now",
+exploreCourses:"Explore Courses",
 
-    coursesTitle: "Our Courses",
-    coursesSubtitle:
-      "Learn the Quran with proper guidance and structured education.",
+coursesTitle:"Our Courses",
+coursesSubtitle:
+"Learn the Quran with proper guidance and structured education.",
 
-    tajweedTitle: "Tajweed",
-    tajweedText:
-      "Learn the rules of Quranic pronunciation and improve the quality of your recitation.",
+tajweedTitle:"Tajweed",
+tajweedText:
+"Learn the rules of Quranic pronunciation and improve the quality of your recitation.",
 
-    naziraTitle: "Nazira",
-    naziraText:
-      "Develop fluent and accurate Quran reading with proper pronunciation and guidance.",
+naziraTitle:"Nazira",
+naziraText:
+"Develop fluent and accurate Quran reading with proper pronunciation and guidance.",
 
-    hifzTitle: "Hifzul Quran",
-    hifzText:
-      "Memorize the Holy Quran through a structured and consistent learning program.",
+hifzTitle:"Hifzul Quran",
+hifzText:
+"Memorize the Holy Quran through a structured and consistent learning program.",
 
-    aboutTitle: "About School of Quran",
-    aboutSubtitle:
-      "Quran education made accessible for everyone.",
+aboutTitle:"About School of Quran",
+aboutSubtitle:"Quran education made accessible for everyone.",
 
-    aboutName: "School of Quran",
-    aboutText1:
-      "is an online Quran learning academy based in Sylhet, Bangladesh.",
+aboutText1:
+"is an online Quran learning academy based in Sylhet, Bangladesh.",
 
-    aboutText2:
-      "Our educational levels include",
+aboutText2:
+"Our educational levels include Tajweed, Nazira and Hifzul Quran.",
 
-    aboutCourses:
-      "Tajweed, Nazira and Hifzul Quran.",
+aboutText3:
+"We aim to bring correct Quranic recitation and Quranic knowledge to people in an organized and accessible way.",
 
-    aboutText3:
-      "We aim to bring correct Quranic recitation and Quranic knowledge to people in an organized and accessible way.",
+whoTitle:"Who Can Join?",
+whoSubtitle:
+"We provide Quran education for both male and female students.",
 
-    whoTitle: "Who Can Join?",
-    whoSubtitle:
-      "We provide Quran education for both male and female students.",
+maleStudents:"Male Students",
+femaleStudents:"Female Students",
+years:"Years",
 
-    maleStudents: "Male Students",
-    maleDescription:
-      "Quran education for boys and men.",
+feesTitle:"Fee Structure",
+feesSubtitle:"Simple and transparent fees.",
+admissionFee:"Admission Fee",
+monthlyFee:"Monthly Fee",
 
-    femaleStudents: "Female Students",
-    femaleDescription:
-      "Quran education for girls and women.",
+scheduleTitle:"Class Schedule",
+scheduleSubtitle:
+"Flexible learning according to your convenience.",
 
-    feesTitle: "Fee Structure",
-    feesSubtitle:
-      "Simple and transparent fees.",
+flexibleBatches:"Flexible Batches",
 
-    admissionFee: "Admission Fee",
-    monthlyFee: "Monthly Fee",
+scheduleText:
+"Classes are arranged in batches according to the convenience and availability of students.",
 
-    scheduleTitle: "Class Schedule",
-    scheduleSubtitle:
-      "Flexible learning according to your convenience.",
+teachersTitle:"Our Teachers",
+teachersSubtitle:
+"Experienced Quran educators dedicated to teaching.",
 
-    flexibleBatches: "Flexible Batches",
+teacher1:"Teacher 01",
+teacher2:"Teacher 02",
+teacher3:"Teacher 03",
+teacher4:"Teacher 04",
+teacher5:"Teacher 05",
+teacher6:"Teacher 06",
+teacher7:"Teacher 07",
 
-    scheduleText:
-      "Classes are arranged in batches according to the convenience and availability of students.",
+maleTeacher:"Hafiz • Maulana • Mufti",
+femaleTeacher:"Hafiza • Alima",
 
-    teachersTitle: "Our Teachers",
+teacherText:
+"Experienced in Quran education, Tajweed and Hifzul Quran.",
 
-    teachersSubtitle:
-      "Experienced Quran educators dedicated to teaching.",
+maleTeachers:"Male Teachers",
+femaleTeachers:"Female Teachers",
 
-    maleTeachers: "Male Teachers",
-    maleTeacherType: "Hafiz • Maulana • Mufti",
+methodTitle:"How We Teach",
+methodSubtitle:
+"A structured and student-focused Quran learning system.",
 
-    femaleTeachers: "Female Teachers",
-    femaleTeacherType: "Hafiza • Alima",
+method1Title:"Assessment",
+method1Text:
+"Every student is assessed according to their current Quran reading and learning level before joining the appropriate class.",
 
-    missionTitle: "Our Mission",
+method2Title:"Tajweed & Correct Recitation",
+method2Text:
+"Students learn pronunciation, articulation points and important rules of Quranic recitation step by step.",
 
-    missionText1:
-      "Our goal is to deliver correct Quranic recitation and Quranic knowledge to people from all walks of life.",
+method3Title:"Daily Practice & Revision",
+method3Text:
+"Regular practice and revision help students maintain accuracy and consistency in their learning.",
 
-    missionText2:
-      "Many people cannot attend regular educational institutions because of lack of time or opportunity. We aim to bring structured, institutional-style Quran education to them through flexible online learning.",
+method4Title:"Progress Monitoring",
+method4Text:
+"Students' progress is monitored regularly so that teachers can identify weaknesses and provide appropriate guidance.",
 
-    contactTitle: "Contact Us",
+missionTitle:"Our Mission",
 
-    contactSubtitle:
-      "We would be happy to hear from you.",
+missionText1:
+"Our goal is to deliver correct Quranic recitation and Quranic knowledge to people from all walks of life.",
 
-    contactSchool: "School of Quran",
+missionText2:
+"Many people cannot attend regular educational institutions because of lack of time or opportunity. We aim to bring structured, institutional-style Quran education to them through flexible online learning.",
 
-    sylhet: "Sylhet, Bangladesh",
+admissionTitle:"Online Admission",
 
-    whatsappButton:
-      "Contact on WhatsApp",
+admissionSubtitle:
+"Fill in the form below to apply for admission.",
 
-    comingSoon:
-      "Online admission form and social media links will be added soon.",
+studentName:"Student Name",
+guardianName:"Father / Guardian Name",
+age:"Age",
+gender:"Gender",
+selectGender:"Select Gender",
+male:"Male",
+female:"Female",
+phone:"Phone Number",
+course:"Course",
+selectCourse:"Select Course",
+preferredTime:"Preferred Class Time",
+address:"Address",
+notes:"Additional Information",
+submitApplication:"Submit Application",
 
-    footerName: "School of Quran",
+contactTitle:"Contact Us",
+contactSubtitle:"We would be happy to hear from you.",
 
-    footerCourses:
-      "Tajweed • Nazira • Hifzul Quran",
+whatsappButton:"Contact on WhatsApp"
 
-    copyright:
-      "© 2026 School of Quran. All Rights Reserved."
-  },
+},
 
+bn:{
 
-  bn: {
+logo:"স্কুল অব কুরআন",
 
-    logo: "স্কুল অব কুরআন",
+navCourses:"কোর্সসমূহ",
+navAbout:"আমাদের সম্পর্কে",
+navTeachers:"শিক্ষকবৃন্দ",
+navAdmission:"ভর্তি",
+navContact:"যোগাযোগ",
 
-    navCourses: "কোর্সসমূহ",
-    navAbout: "আমাদের সম্পর্কে",
-    navFees: "ফি",
-    navTeachers: "শিক্ষকবৃন্দ",
-    navContact: "যোগাযোগ",
+heroTitle:"স্কুল অব কুরআন",
+heroSubtitle:"তাজবীদ • নাজেরা • হিফজুল কুরআন",
 
-    heroTitle: "স্কুল অব কুরআন",
+heroDescription:
+"সঠিক দিকনির্দেশনার মাধ্যমে শিক্ষার্থীদের পবিত্র কুরআন শেখা, তিলাওয়াত ও মুখস্থ করতে সহায়তা করার জন্য একটি অনলাইন কুরআন শিক্ষা একাডেমি।",
 
-    heroSubtitle:
-      "তাজবীদ • নাজেরা • হিফজুল কুরআন",
+applyNow:"ভর্তি আবেদন",
+exploreCourses:"কোর্সসমূহ দেখুন",
 
-    heroDescription:
-      "সঠিক দিকনির্দেশনার মাধ্যমে শিক্ষার্থীদের পবিত্র কুরআন শেখা, তিলাওয়াত ও মুখস্থ করতে সহায়তা করার জন্য একটি অনলাইন কুরআন শিক্ষা একাডেমি।",
+coursesTitle:"আমাদের কোর্সসমূহ",
+coursesSubtitle:
+"সঠিক দিকনির্দেশনা ও সুবিন্যস্ত পদ্ধতিতে কুরআন শিখুন।",
 
-    contactUs: "যোগাযোগ করুন",
+tajweedTitle:"তাজবীদ",
+tajweedText:
+"কুরআনের সঠিক উচ্চারণের নিয়ম শিখুন এবং আপনার তিলাওয়াতের মান উন্নত করুন।",
 
-    exploreCourses:
-      "কোর্সসমূহ দেখুন",
+naziraTitle:"নাজেরা",
+naziraText:
+"সঠিক উচ্চারণ ও দিকনির্দেশনার মাধ্যমে সাবলীল ও নির্ভুলভাবে কুরআন পড়া শিখুন।",
 
-    coursesTitle:
-      "আমাদের কোর্সসমূহ",
+hifzTitle:"হিফজুল কুরআন",
+hifzText:
+"সুবিন্যস্ত ও ধারাবাহিক শিক্ষা কার্যক্রমের মাধ্যমে পবিত্র কুরআন মুখস্থ করুন।",
 
-    coursesSubtitle:
-      "সঠিক দিকনির্দেশনা ও সুবিন্যস্ত পদ্ধতিতে কুরআন শিখুন।",
+aboutTitle:"স্কুল অব কুরআন সম্পর্কে",
+aboutSubtitle:"সবার জন্য সহজলভ্য কুরআন শিক্ষা।",
 
-    tajweedTitle: "তাজবীদ",
+aboutText1:
+"সিলেট, বাংলাদেশভিত্তিক একটি অনলাইন কুরআন শিক্ষা একাডেমি।",
 
-    tajweedText:
-      "কুরআনের সঠিক উচ্চারণের নিয়ম শিখুন এবং আপনার তিলাওয়াতের মান উন্নত করুন।",
+aboutText2:
+"আমাদের শিক্ষার স্তরসমূহ হলো তাজবীদ, নাজেরা ও হিফজুল কুরআন।",
 
-    naziraTitle: "নাজেরা",
+aboutText3:
+"আমাদের লক্ষ্য হলো সংগঠিত ও সহজলভ্য পদ্ধতিতে মানুষের কাছে সঠিক কুরআন তিলাওয়াত ও কুরআনের জ্ঞান পৌঁছে দেওয়া।",
 
-    naziraText:
-      "সঠিক উচ্চারণ ও দিকনির্দেশনার মাধ্যমে সাবলীল ও নির্ভুলভাবে কুরআন পড়া শিখুন।",
+whoTitle:"কারা ভর্তি হতে পারবে?",
+whoSubtitle:
+"আমরা পুরুষ ও নারী উভয় শিক্ষার্থীর জন্য কুরআন শিক্ষা প্রদান করি।",
 
-    hifzTitle: "হিফজুল কুরআন",
+maleStudents:"পুরুষ শিক্ষার্থী",
+femaleStudents:"নারী শিক্ষার্থী",
+years:"বছর",
 
-    hifzText:
-      "সুবিন্যস্ত ও ধারাবাহিক শিক্ষা কার্যক্রমের মাধ্যমে পবিত্র কুরআন মুখস্থ করুন।",
+feesTitle:"ফি কাঠামো",
+feesSubtitle:"সহজ ও স্বচ্ছ ফি ব্যবস্থা।",
 
-    aboutTitle:
-      "স্কুল অব কুরআন সম্পর্কে",
+admissionFee:"ভর্তি ফি",
+monthlyFee:"মাসিক ফি",
 
-    aboutSubtitle:
-      "সবার জন্য সহজলভ্য কুরআন শিক্ষা।",
+scheduleTitle:"ক্লাসের সময়সূচি",
+scheduleSubtitle:
+"আপনার সুবিধা অনুযায়ী নমনীয় শিক্ষা ব্যবস্থা।",
 
-    aboutName:
-      "স্কুল অব কুরআন",
+flexibleBatches:"নমনীয় ব্যাচ",
 
-    aboutText1:
-      "সিলেট, বাংলাদেশভিত্তিক একটি অনলাইন কুরআন শিক্ষা একাডেমি।",
+scheduleText:
+"শিক্ষার্থীদের সুবিধা ও সময় অনুযায়ী বিভিন্ন ব্যাচে ক্লাসের ব্যবস্থা করা হয়।",
 
-    aboutText2:
-      "আমাদের শিক্ষার স্তরসমূহ হলো",
+teachersTitle:"আমাদের শিক্ষকবৃন্দ",
+teachersSubtitle:
+"শিক্ষাদানে নিবেদিত অভিজ্ঞ কুরআন শিক্ষকমণ্ডলী।",
 
-    aboutCourses:
-      "তাজবীদ, নাজেরা ও হিফজুল কুরআন।",
+teacher1:"শিক্ষক ০১",
+teacher2:"শিক্ষক ০২",
+teacher3:"শিক্ষক ০৩",
+teacher4:"শিক্ষক ০৪",
+teacher5:"শিক্ষিকা ০৫",
+teacher6:"শিক্ষিকা ০৬",
+teacher7:"শিক্ষিকা ০৭",
 
-    aboutText3:
-      "আমাদের লক্ষ্য হলো সংগঠিত ও সহজলভ্য পদ্ধতিতে মানুষের কাছে সঠিক কুরআন তিলাওয়াত ও কুরআনের জ্ঞান পৌঁছে দেওয়া।",
+maleTeacher:"হাফিজ • মাওলানা • মুফতি",
+femaleTeacher:"হাফিজা • আলিমা",
 
-    whoTitle:
-      "কারা ভর্তি হতে পারবে?",
+teacherText:
+"কুরআন শিক্ষা, তাজবীদ ও হিফজুল কুরআনে অভিজ্ঞ।",
 
-    whoSubtitle:
-      "আমরা পুরুষ ও নারী উভয় শিক্ষার্থীর জন্য কুরআন শিক্ষা প্রদান করি।",
+maleTeachers:"পুরুষ শিক্ষক",
+femaleTeachers:"নারী শিক্ষক",
 
-    maleStudents:
-      "পুরুষ শিক্ষার্থী",
+methodTitle:"আমরা যেভাবে পড়াই",
+methodSubtitle:
+"সুবিন্যস্ত ও শিক্ষার্থী-কেন্দ্রিক কুরআন শিক্ষা ব্যবস্থা।",
 
-    maleDescription:
-      "ছেলে ও পুরুষদের জন্য কুরআন শিক্ষা।",
+method1Title:"মূল্যায়ন",
+method1Text:
+"প্রত্যেক শিক্ষার্থীর বর্তমান কুরআন পড়ার ও শেখার মান যাচাই করে উপযুক্ত ক্লাসে যুক্ত করা হয়।",
 
-    femaleStudents:
-      "নারী শিক্ষার্থী",
+method2Title:"তাজবীদ ও সঠিক তিলাওয়াত",
+method2Text:
+"ধাপে ধাপে উচ্চারণ, মাখরাজ এবং কুরআন তিলাওয়াতের গুরুত্বপূর্ণ নিয়ম শেখানো হয়।",
 
-    femaleDescription:
-      "মেয়ে ও নারীদের জন্য কুরআন শিক্ষা।",
+method3Title:"দৈনিক অনুশীলন ও পুনরাবৃত্তি",
+method3Text:
+"নিয়মিত অনুশীলন ও পুনরাবৃত্তির মাধ্যমে শিক্ষার্থীর শুদ্ধতা ও ধারাবাহিকতা বজায় রাখা হয়।",
 
-    feesTitle:
-      "ফি কাঠামো",
+method4Title:"অগ্রগতি পর্যবেক্ষণ",
+method4Text:
+"শিক্ষার্থীর অগ্রগতি নিয়মিত পর্যবেক্ষণ করে দুর্বলতা চিহ্নিত ও প্রয়োজনীয় দিকনির্দেশনা দেওয়া হয়।",
 
-    feesSubtitle:
-      "সহজ ও স্বচ্ছ ফি ব্যবস্থা।",
+missionTitle:"আমাদের লক্ষ্য",
 
-    admissionFee:
-      "ভর্তি ফি",
+missionText1:
+"জীবনের সকল শ্রেণি-পেশার মানুষের কাছে সঠিক কুরআন তিলাওয়াত ও কুরআনের জ্ঞান পৌঁছে দেওয়াই আমাদের লক্ষ্য।",
 
-    monthlyFee:
-      "মাসিক ফি",
+missionText2:
+"সময়ের স্বল্পতা বা সুযোগের অভাবে অনেক মানুষ নিয়মিত শিক্ষা প্রতিষ্ঠানে যেতে পারেন না। নমনীয় অনলাইন শিক্ষার মাধ্যমে তাদের কাছে প্রাতিষ্ঠানিক পদ্ধতির সুবিন্যস্ত কুরআন শিক্ষা পৌঁছে দেওয়াই আমাদের উদ্দেশ্য।",
 
-    scheduleTitle:
-      "ক্লাসের সময়সূচি",
+admissionTitle:"অনলাইন ভর্তি",
+admissionSubtitle:
+"ভর্তির জন্য নিচের ফরমটি পূরণ করুন।",
 
-    scheduleSubtitle:
-      "আপনার সুবিধা অনুযায়ী নমনীয় শিক্ষা ব্যবস্থা।",
+studentName:"শিক্ষার্থীর নাম",
+guardianName:"পিতা / অভিভাবকের নাম",
+age:"বয়স",
+gender:"লিঙ্গ",
+selectGender:"লিঙ্গ নির্বাচন করুন",
+male:"পুরুষ",
+female:"নারী",
+phone:"ফোন নম্বর",
+course:"কোর্স",
+selectCourse:"কোর্স নির্বাচন করুন",
+preferredTime:"পছন্দের ক্লাসের সময়",
+address:"ঠিকানা",
+notes:"অতিরিক্ত তথ্য",
+submitApplication:"ভর্তি আবেদন জমা দিন",
 
-    flexibleBatches:
-      "নমনীয় ব্যাচ",
+contactTitle:"যোগাযোগ করুন",
+contactSubtitle:
+"আমরা আপনার সঙ্গে যোগাযোগ করতে পেরে আনন্দিত হব।",
 
-    scheduleText:
-      "শিক্ষার্থীদের সুবিধা ও সময় অনুযায়ী বিভিন্ন ব্যাচে ক্লাসের ব্যবস্থা করা হয়।",
+whatsappButton:"হোয়াটসঅ্যাপে যোগাযোগ করুন"
 
-    teachersTitle:
-      "আমাদের শিক্ষকবৃন্দ",
+},
 
-    teachersSubtitle:
-      "শিক্ষাদানে নিবেদিত অভিজ্ঞ কুরআন শিক্ষকমণ্ডলী।",
+ar:{
 
-    maleTeachers:
-      "পুরুষ শিক্ষক",
+logo:"مدرسة القرآن",
 
-    maleTeacherType:
-      "হাফিজ • মাওলানা • মুফতি",
+navCourses:"الدورات",
+navAbout:"من نحن",
+navTeachers:"المعلمون",
+navAdmission:"التسجيل",
+navContact:"اتصل بنا",
 
-    femaleTeachers:
-      "নারী শিক্ষক",
+heroTitle:"مدرسة القرآن",
+heroSubtitle:"التجويد • الناظرة • حفظ القرآن",
 
-    femaleTeacherType:
-      "হাফিজা • আলিমা",
+heroDescription:
+"أكاديمية إلكترونية لتعليم القرآن الكريم، تساعد الطلاب على تعلم القرآن وتلاوته وحفظه بإرشاد صحيح.",
 
-    missionTitle:
-      "আমাদের লক্ষ্য",
+applyNow:"التسجيل الآن",
+exploreCourses:"استكشف الدورات",
 
-    missionText1:
-      "জীবনের সকল শ্রেণি-পেশার মানুষের কাছে সঠিক কুরআন তিলাওয়াত ও কুরআনের জ্ঞান পৌঁছে দেওয়াই আমাদের লক্ষ্য।",
+coursesTitle:"دوراتنا",
+coursesSubtitle:
+"تعلم القرآن الكريم بإرشاد صحيح ومنهج تعليمي منظم.",
 
-    missionText2:
-      "সময়ের স্বল্পতা বা সুযোগের অভাবে অনেক মানুষ নিয়মিত শিক্ষা প্রতিষ্ঠানে যেতে পারেন না। নমনীয় অনলাইন শিক্ষার মাধ্যমে তাদের কাছে প্রাতিষ্ঠানিক পদ্ধতির সুবিন্যস্ত কুরআন শিক্ষা পৌঁছে দেওয়াই আমাদের উদ্দেশ্য।",
+tajweedTitle:"التجويد",
+tajweedText:
+"تعلم قواعد النطق الصحيح للقرآن الكريم وحسن جودة تلاوتك.",
 
-    contactTitle:
-      "যোগাযোগ করুন",
+naziraTitle:"الناظرة",
+naziraText:
+"تعلم قراءة القرآن الكريم بطلاقة ودقة مع النطق الصحيح والتوجيه المناسب.",
 
-    contactSubtitle:
-      "আমরা আপনার সঙ্গে যোগাযোগ করতে পেরে আনন্দিত হব।",
+hifzTitle:"حفظ القرآن",
+hifzText:
+"احفظ القرآن الكريم من خلال برنامج تعليمي منظم ومستمر.",
 
-    contactSchool:
-      "স্কুল অব কুরআন",
+aboutTitle:"عن مدرسة القرآن",
+aboutSubtitle:"تعليم القرآن متاح للجميع.",
 
-    sylhet:
-      "সিলেট, বাংলাদেশ",
+aboutText1:
+"هي أكاديمية إلكترونية لتعليم القرآن الكريم مقرها في سيلهيت، بنغلاديش.",
 
-    whatsappButton:
-      "হোয়াটসঅ্যাপে যোগাযোগ করুন",
+aboutText2:
+"تشمل مستوياتنا التعليمية التجويد والناظرة وحفظ القرآن.",
 
-    comingSoon:
-      "অনলাইন ভর্তি ফরম ও সামাজিক যোগাযোগমাধ্যমের লিংক শিগগিরই যুক্ত করা হবে।",
+aboutText3:
+"نهدف إلى إيصال التلاوة الصحيحة للقرآن الكريم والمعرفة القرآنية إلى الناس بطريقة منظمة وميسرة.",
 
-    footerName:
-      "স্কুল অব কুরআন",
+whoTitle:"من يمكنه الانضمام؟",
+whoSubtitle:
+"نقدم تعليم القرآن الكريم للطلاب والطالبات.",
 
-    footerCourses:
-      "তাজবীদ • নাজেরা • হিফজুল কুরআন",
+maleStudents:"الطلاب الذكور",
+femaleStudents:"الطالبات",
+years:"سنة",
 
-    copyright:
-      "© ২০২৬ স্কুল অব কুরআন। সর্বস্বত্ব সংরক্ষিত।"
-  },
+feesTitle:"الرسوم الدراسية",
+feesSubtitle:"رسوم بسيطة وواضحة.",
 
+admissionFee:"رسوم التسجيل",
+monthlyFee:"الرسوم الشهرية",
 
-  ar: {
+scheduleTitle:"جدول الدروس",
+scheduleSubtitle:
+"تعلم مرن حسب وقتك المناسب.",
 
-    logo: "مدرسة القرآن",
+flexibleBatches:"مجموعات مرنة",
 
-    navCourses: "الدورات",
-    navAbout: "من نحن",
-    navFees: "الرسوم",
-    navTeachers: "المعلمون",
-    navContact: "اتصل بنا",
+scheduleText:
+"يتم تنظيم الدروس في مجموعات حسب وقت الطلاب المناسب ومدى توفرهم.",
 
-    heroTitle: "مدرسة القرآن",
+teachersTitle:"معلمونا",
+teachersSubtitle:
+"معلمون ذوو خبرة مكرسون لتعليم القرآن الكريم.",
 
-    heroSubtitle:
-      "التجويد • الناظرة • حفظ القرآن",
+teacher1:"المعلم ٠١",
+teacher2:"المعلم ٠٢",
+teacher3:"المعلم ٠٣",
+teacher4:"المعلم ٠٤",
+teacher5:"المعلمة ٠٥",
+teacher6:"المعلمة ٠٦",
+teacher7:"المعلمة ٠٧",
 
-    heroDescription:
-      "أكاديمية إلكترونية لتعليم القرآن الكريم، تساعد الطلاب على تعلم القرآن وتلاوته وحفظه بإرشاد وتوجيه صحيح.",
+maleTeacher:"حافظ • مولانا • مفتي",
+femaleTeacher:"حافظة • عالمة",
 
-    contactUs:
-      "اتصل بنا",
+teacherText:
+"ذو خبرة في تعليم القرآن والتجويد وحفظ القرآن.",
 
-    exploreCourses:
-      "استكشف الدورات",
+maleTeachers:"المعلمون الذكور",
+femaleTeachers:"المعلمات",
 
-    coursesTitle:
-      "دوراتنا",
+methodTitle:"كيف نعلّم؟",
+methodSubtitle:
+"نظام تعليمي قرآني منظم يركز على الطالب.",
 
-    coursesSubtitle:
-      "تعلّم القرآن الكريم بإرشاد صحيح ومنهج تعليمي منظم.",
+method1Title:"التقييم",
+method1Text:
+"يتم تقييم مستوى كل طالب في قراءة القرآن قبل إلحاقه بالمجموعة المناسبة.",
 
-    tajweedTitle:
-      "التجويد",
+method2Title:"التجويد والتلاوة الصحيحة",
+method2Text:
+"يتعلم الطلاب النطق الصحيح والمخارج وأهم قواعد التلاوة خطوة بخطوة.",
 
-    tajweedText:
-      "تعلّم قواعد النطق الصحيح للقرآن الكريم وحسّن جودة تلاوتك.",
+method3Title:"الممارسة والمراجعة اليومية",
+method3Text:
+"تساعد الممارسة والمراجعة المنتظمة على الحفاظ على الدقة والاستمرارية.",
 
-    naziraTitle:
-      "الناظرة",
+method4Title:"متابعة التقدم",
+method4Text:
+"تتم متابعة تقدم الطلاب بانتظام لتحديد نقاط الضعف وتقديم التوجيه المناسب.",
 
-    naziraText:
-      "تعلّم قراءة القرآن الكريم بطلاقة ودقة مع النطق الصحيح والتوجيه المناسب.",
+missionTitle:"رسالتنا",
 
-    hifzTitle:
-      "حفظ القرآن",
+missionText1:
+"هدفنا هو إيصال التلاوة الصحيحة للقرآن الكريم والمعرفة القرآنية إلى الناس من مختلف فئات المجتمع.",
 
-    hifzText:
-      "احفظ القرآن الكريم من خلال برنامج تعليمي منظم ومستمر.",
+missionText2:
+"لا يستطيع كثير من الناس الالتحاق بالمؤسسات التعليمية النظامية بسبب ضيق الوقت أو عدم توفر الفرصة. ونهدف من خلال التعليم الإلكتروني المرن إلى إيصال تعليم قرآني منظم بأسلوب مؤسسي إليهم.",
 
-    aboutTitle:
-      "عن مدرسة القرآن",
+admissionTitle:"التسجيل الإلكتروني",
+admissionSubtitle:
+"املأ النموذج التالي للتقديم.",
 
-    aboutSubtitle:
-      "تعليم القرآن متاح للجميع.",
+studentName:"اسم الطالب",
+guardianName:"اسم الأب / ولي الأمر",
+age:"العمر",
+gender:"الجنس",
+selectGender:"اختر الجنس",
+male:"ذكر",
+female:"أنثى",
+phone:"رقم الهاتف",
+course:"الدورة",
+selectCourse:"اختر الدورة",
+preferredTime:"وقت الدرس المفضل",
+address:"العنوان",
+notes:"معلومات إضافية",
+submitApplication:"إرسال الطلب",
 
-    aboutName:
-      "مدرسة القرآن",
+contactTitle:"اتصل بنا",
+contactSubtitle:"يسعدنا التواصل معكم.",
 
-    aboutText1:
-      "هي أكاديمية إلكترونية لتعليم القرآن الكريم مقرها في سيلهيت، بنغلاديش.",
+whatsappButton:"تواصل معنا عبر واتساب"
 
-    aboutText2:
-      "تشمل مستوياتنا التعليمية",
-
-    aboutCourses:
-      "التجويد والناظرة وحفظ القرآن.",
-
-    aboutText3:
-      "نهدف إلى إيصال التلاوة الصحيحة للقرآن الكريم والمعرفة القرآنية إلى الناس بطريقة منظمة وميسّرة.",
-
-    whoTitle:
-      "من يمكنه الانضمام؟",
-
-    whoSubtitle:
-      "نقدم تعليم القرآن الكريم للطلاب والطالبات.",
-
-    maleStudents:
-      "الطلاب الذكور",
-
-    maleDescription:
-      "تعليم القرآن الكريم للأولاد والرجال.",
-
-    femaleStudents:
-      "الطالبات",
-
-    femaleDescription:
-      "تعليم القرآن الكريم للبنات والنساء.",
-
-    feesTitle:
-      "الرسوم الدراسية",
-
-    feesSubtitle:
-      "رسوم بسيطة وواضحة.",
-
-    admissionFee:
-      "رسوم التسجيل",
-
-    monthlyFee:
-      "الرسوم الشهرية",
-
-    scheduleTitle:
-      "جدول الدروس",
-
-    scheduleSubtitle:
-      "تعلم مرن حسب وقتك المناسب.",
-
-    flexibleBatches:
-      "مجموعات مرنة",
-
-    scheduleText:
-      "يتم تنظيم الدروس في مجموعات حسب وقت الطلاب المناسب ومدى توفرهم.",
-
-    teachersTitle:
-      "معلمونا",
-
-    teachersSubtitle:
-      "معلمون ذوو خبرة مكرسون لتعليم القرآن الكريم.",
-
-    maleTeachers:
-      "المعلمون الذكور",
-
-    maleTeacherType:
-      "حافظ • مولانا • مفتي",
-
-    femaleTeachers:
-      "المعلمات",
-
-    femaleTeacherType:
-      "حافظة • عالمة",
-
-    missionTitle:
-      "رسالتنا",
-
-    missionText1:
-      "هدفنا هو إيصال التلاوة الصحيحة للقرآن الكريم والمعرفة القرآنية إلى الناس من مختلف فئات المجتمع.",
-
-    missionText2:
-      "لا يستطيع كثير من الناس الالتحاق بالمؤسسات التعليمية النظامية بسبب ضيق الوقت أو عدم توفر الفرصة. ونهدف من خلال التعليم الإلكتروني المرن إلى إيصال تعليم قرآني منظم بأسلوب مؤسسي إليهم.",
-
-    contactTitle:
-      "اتصل بنا",
-
-    contactSubtitle:
-      "يسعدنا التواصل معكم.",
-
-    contactSchool:
-      "مدرسة القرآن",
-
-    sylhet:
-      "سيلهيت، بنغلاديش",
-
-    whatsappButton:
-      "تواصل معنا عبر واتساب",
-
-    comingSoon:
-      "سيتم إضافة نموذج التسجيل الإلكتروني وروابط وسائل التواصل الاجتماعي قريبًا.",
-
-    footerName:
-      "مدرسة القرآن",
-
-    footerCourses:
-      "التجويد • الناظرة • حفظ القرآن",
-
-    copyright:
-      "© ٢٠٢٦ مدرسة القرآن. جميع الحقوق محفوظة."
-  }
+}
 
 };
 
 
-function changeLanguage(language) {
+/* LANGUAGE */
 
-  const selectedLanguage = translations[language];
+function changeLanguage(language){
 
-  document.querySelectorAll("[data-i18n]").forEach(function(element) {
+const selectedLanguage=translations[language];
 
-    const key = element.getAttribute("data-i18n");
+document.querySelectorAll("[data-i18n]").forEach(function(element){
 
-    if (selectedLanguage[key]) {
-      element.textContent = selectedLanguage[key];
-    }
+const key=element.getAttribute("data-i18n");
 
-  });
+if(selectedLanguage[key]){
+element.textContent=selectedLanguage[key];
+}
 
+});
 
-  /* Arabic RTL */
+if(language==="ar"){
 
-  if (language === "ar") {
+document.body.classList.add("rtl");
+document.documentElement.lang="ar";
 
-    document.body.classList.add("rtl");
-    document.documentElement.lang = "ar";
+}else{
 
-  } else {
+document.body.classList.remove("rtl");
+document.documentElement.lang=language;
 
-    document.body.classList.remove("rtl");
-    document.documentElement.lang = language;
+}
 
-  }
+document.querySelectorAll(".language-switcher button")
+.forEach(function(button){
+button.classList.remove("active");
+});
 
+document.getElementById(language+"Btn")
+.classList.add("active");
 
-  /* Active language button */
+localStorage.setItem(
+"schoolOfQuranLanguage",
+language
+);
 
-  document.querySelectorAll(".language-switcher button")
-    .forEach(function(button) {
-      button.classList.remove("active");
-    });
-
-  document.getElementById(language + "Btn")
-    .classList.add("active");
-
-
-  /* Save selected language */
-
-  localStorage.setItem("schoolOfQuranLanguage", language);
 }
 
 
-/* Load saved language */
+/* =========================
+   TEACHER SLIDER
+========================= */
 
-const savedLanguage =
-  localStorage.getItem("schoolOfQuranLanguage") || "en";
+let teacherIndex=0;
+
+function moveTeacher(direction){
+
+const slides=document.querySelectorAll(".teacher-slide");
+
+teacherIndex += direction;
+
+if(teacherIndex<0){
+teacherIndex=slides.length-1;
+}
+
+if(teacherIndex>=slides.length){
+teacherIndex=0;
+}
+
+document.getElementById("teacherTrack").style.transform=
+"translateX(-"+(teacherIndex*100)+"%)";
+
+}
+
+
+/* AUTO TEACHER SLIDE */
+
+setInterval(function(){
+
+moveTeacher(1);
+
+},5000);
+
+
+/* =========================
+   TEACHING METHOD SLIDER
+========================= */
+
+let methodIndex=0;
+
+function showMethod(index){
+
+const slides=document.querySelectorAll(".method-slide");
+const dots=document.querySelectorAll(".method-dot");
+
+slides.forEach(function(slide){
+slide.classList.remove("active");
+});
+
+dots.forEach(function(dot){
+dot.classList.remove("active");
+});
+
+methodIndex=index;
+
+slides[index].classList.add("active");
+dots[index].classList.add("active");
+
+}
+
+
+setInterval(function(){
+
+methodIndex++;
+
+if(methodIndex>=4){
+methodIndex=0;
+}
+
+showMethod(methodIndex);
+
+},4500);
+
+
+/* =========================
+   ADMISSION FORM
+   TEMPORARY STORAGE
+========================= */
+
+document
+.getElementById("admissionForm")
+.addEventListener("submit",function(event){
+
+event.preventDefault();
+
+const application={
+
+studentName:
+document.getElementById("studentName").value,
+
+guardianName:
+document.getElementById("guardianName").value,
+
+age:
+document.getElementById("age").value,
+
+gender:
+document.getElementById("gender").value,
+
+phone:
+document.getElementById("phone").value,
+
+whatsapp:
+document.getElementById("whatsapp").value,
+
+course:
+document.getElementById("course").value,
+
+preferredTime:
+document.getElementById("preferredTime").value,
+
+address:
+document.getElementById("address").value,
+
+notes:
+document.getElementById("notes").value,
+
+submittedAt:
+new Date().toISOString()
+
+};
+
+
+let applications=
+JSON.parse(
+localStorage.getItem("schoolOfQuranApplications") || "[]"
+);
+
+applications.push(application);
+
+localStorage.setItem(
+"schoolOfQuranApplications",
+JSON.stringify(applications)
+);
+
+
+document.getElementById("formMessage").style.display="block";
+
+document.getElementById("admissionForm").reset();
+
+setTimeout(function(){
+
+document.getElementById("formMessage").style.display="none";
+
+},5000);
+
+});
+
+
+/* LOAD LANGUAGE */
+
+const savedLanguage=
+localStorage.getItem("schoolOfQuranLanguage") || "en";
 
 changeLanguage(savedLanguage);
 
