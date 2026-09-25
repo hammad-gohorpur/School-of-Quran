@@ -1,753 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>School of Quran | Tajweed • Nazira • Hifzul Quran</title>
+<title>School of Quran</title>
 
-  <style>
+<style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #fbf8f1;
-      color: #29332d;
-      line-height: 1.7;
+        font-family: Arial, sans-serif;
+        background: #f8f6f2;
+        color: #333;
+        transition: 0.3s;
     }
 
-    a {
-      text-decoration: none;
+    /* Language Selector */
+    .language-bar {
+        text-align: right;
+        padding: 15px 25px;
+        background: #fff;
+        border-bottom: 1px solid #eee;
     }
 
-    /* Navigation */
-
-    nav {
-      background: #123b2a;
-      padding: 16px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    .language-bar button {
+        border: none;
+        background: #eee;
+        padding: 8px 13px;
+        margin-left: 5px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
     }
 
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #f4d58d;
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      font-size: 14px;
+    .language-bar button:hover {
+        background: #d9c3a5;
     }
 
     /* Hero */
-
     .hero {
-      background:
-        linear-gradient(rgba(18,59,42,0.90), rgba(18,59,42,0.90));
-      color: white;
-      text-align: center;
-      padding: 85px 20px 90px;
-    }
-
-    .arabic {
-      font-size: 38px;
-      color: #f4d58d;
-      margin-bottom: 15px;
+        background: #6b4226;
+        color: white;
+        text-align: center;
+        padding: 70px 20px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
+        font-size: 42px;
+        margin-bottom: 15px;
     }
 
-    .hero-subtitle {
-      font-size: 20px;
-      color: #f4d58d;
-      margin-bottom: 18px;
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 25px;
     }
 
-    .hero-description {
-      max-width: 700px;
-      margin: auto;
-      font-size: 17px;
-      color: #f2f2f2;
-    }
-
-    .buttons {
-      margin-top: 30px;
+    .hero .tagline {
+        font-size: 16px;
+        margin-bottom: 30px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 13px 27px;
-      border-radius: 30px;
-      margin: 5px;
-      font-weight: bold;
-      transition: 0.3s;
+        display: inline-block;
+        background: #d8b37a;
+        color: #fff;
+        padding: 13px 28px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-weight: bold;
     }
 
-    .btn-primary {
-      background: #d5a84c;
-      color: #173b2b;
-    }
-
-    .btn-secondary {
-      border: 1px solid #f4d58d;
-      color: white;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* General sections */
-
+    /* Sections */
     .section {
-      max-width: 1050px;
-      margin: auto;
-      padding: 70px 20px;
+        padding: 55px 20px;
+        max-width: 1100px;
+        margin: auto;
+        text-align: center;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
+    .section h2 {
+        color: #6b4226;
+        margin-bottom: 30px;
+        font-size: 30px;
     }
-
-    .section-title h2 {
-      color: #123b2a;
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #68736d;
-    }
-
-    /* Courses */
 
     .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
     }
 
     .card {
-      background: white;
-      padding: 30px 22px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
-      border-top: 4px solid #d5a84c;
-    }
-
-    .card-icon {
-      font-size: 35px;
-      margin-bottom: 10px;
+        background: white;
+        width: 300px;
+        padding: 30px 20px;
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
     }
 
     .card h3 {
-      color: #123b2a;
-      font-size: 23px;
-      margin-bottom: 10px;
+        color: #6b4226;
+        margin-bottom: 12px;
     }
 
     .card p {
-      color: #626b66;
-      font-size: 15px;
+        line-height: 1.7;
     }
 
-    /* About */
-
-    .about {
-      background: #eef3ed;
+    /* Info */
+    .info {
+        background: #fff;
+        padding: 40px 20px;
+        text-align: center;
     }
 
-    .about-box {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      font-size: 17px;
-    }
-
-    .highlight {
-      color: #123b2a;
-      font-weight: bold;
-    }
-
-    /* Student age */
-
-    .age-section {
-      background: white;
-    }
-
-    .age-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .age-card {
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      background: #fbf8f1;
-      border: 1px solid #e5dcc9;
-    }
-
-    .age-card h3 {
-      color: #123b2a;
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .age-number {
-      font-size: 30px;
-      font-weight: bold;
-      color: #b38329;
-    }
-
-    /* Fees */
-
-    .fee-table {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
-    }
-
-    .fee-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 25px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .fee-row:last-child {
-      border-bottom: none;
-    }
-
-    .fee-name {
-      font-weight: bold;
-    }
-
-    .fee-price {
-      color: #b38329;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    /* Schedule */
-
-    .schedule-box {
-      max-width: 750px;
-      margin: auto;
-      background: #123b2a;
-      color: white;
-      padding: 35px;
-      border-radius: 18px;
-      text-align: center;
-    }
-
-    .schedule-box h3 {
-      color: #f4d58d;
-      margin-bottom: 12px;
-    }
-
-    /* Teachers */
-
-    .teacher-count {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .teacher-box {
-      text-align: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
-
-    .teacher-box h3 {
-      color: #123b2a;
-      margin-bottom: 10px;
-    }
-
-    .teacher-number {
-      font-size: 42px;
-      color: #b38329;
-      font-weight: bold;
-    }
-
-    /* Mission */
-
-    .mission {
-      background: #123b2a;
-      color: white;
-    }
-
-    .mission .section-title h2 {
-      color: #f4d58d;
-    }
-
-    .mission-content {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      font-size: 17px;
-    }
-
-    /* Contact */
-
-    .contact-box {
-      text-align: center;
-      background: white;
-      padding: 40px 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .contact-box h3 {
-      color: #123b2a;
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .whatsapp {
-      display: inline-block;
-      margin-top: 20px;
-      background: #1d7a4b;
-      color: white;
-      padding: 13px 25px;
-      border-radius: 30px;
-      font-weight: bold;
+    .info p {
+        margin: 10px 0;
+        font-size: 17px;
     }
 
     /* Footer */
-
     footer {
-      background: #10251c;
-      color: #cfd8d2;
-      text-align: center;
-      padding: 30px 20px;
+        background: #3e2819;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        margin-top: 30px;
     }
 
-    footer strong {
-      color: #f4d58d;
+    /* Arabic */
+    body.rtl {
+        direction: rtl;
     }
 
-    /* Mobile */
-
-    @media (max-width: 700px) {
-
-      .nav-inner {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .nav-links {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero {
-        padding: 65px 18px 70px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .arabic {
-        font-size: 30px;
-      }
-
-      .hero-subtitle {
-        font-size: 17px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .age-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .teacher-count {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 55px 18px;
-      }
-
-      .section-title h2 {
-        font-size: 28px;
-      }
-
-      .fee-row {
-        padding: 17px;
-      }
+    body.rtl .language-bar {
+        text-align: left;
     }
-  </style>
+
+    body.rtl .language-bar button {
+        margin-left: 0;
+        margin-right: 5px;
+    }
+
+    @media (max-width: 600px) {
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .hero {
+            padding: 50px 15px;
+        }
+
+        .card {
+            width: 100%;
+        }
+    }
+</style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
+<!-- Language Buttons -->
+<div class="language-bar">
+    <button onclick="changeLanguage('bn')">বাংলা</button>
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('ar')">العربية</button>
+</div>
 
-  <nav>
-    <div class="nav-inner">
+<!-- Hero -->
+<section class="hero">
+    <h1 id="title">School of Quran</h1>
 
-      <div class="logo">School of Quran</div>
-
-      <div class="nav-links">
-        <a href="#courses">Courses</a>
-        <a href="#about">About</a>
-        <a href="#fees">Fees</a>
-        <a href="#teachers">Teachers</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-    </div>
-  </nav>
-
-
-  <!-- Hero -->
-
-  <header class="hero">
-
-    <div class="arabic">وَقُل رَّبِّ زِدْنِي عِلْمًا</div>
-
-    <h1>School of Quran</h1>
-
-    <div class="hero-subtitle">
-      Tajweed • Nazira • Hifzul Quran
-    </div>
-
-    <p class="hero-description">
-      An online Quran learning academy dedicated to helping
-      students learn, recite and memorize the Holy Quran
-      with proper guidance.
+    <p class="tagline" id="tagline">
+        Tajweed • Nazira • Hifzul Quran
     </p>
 
-    <div class="buttons">
-      <a href="#contact" class="btn btn-primary">Contact Us</a>
-      <a href="#courses" class="btn btn-secondary">Explore Courses</a>
-    </div>
+    <p id="heroText">
+        Learn the Quran
+    </p>
 
-  </header>
+    <a href="#" class="btn" id="apply">
+        Apply Now
+    </a>
+</section>
 
+<!-- About -->
+<section class="section">
+    <h2 id="aboutTitle">About Us</h2>
 
-  <!-- Courses -->
+    <p id="aboutText">
+        An online academy dedicated to teaching the Holy Quran,
+        Tajweed, Nazira and Hifzul Quran.
+    </p>
+</section>
 
-  <section class="section" id="courses">
+<!-- Courses -->
+<section class="section">
 
-    <div class="section-title">
-      <h2>Our Courses</h2>
-      <p>Learn the Quran with proper guidance and structured education.</p>
-    </div>
+    <h2 id="coursesTitle">Our Courses</h2>
 
     <div class="cards">
 
-      <div class="card">
-        <div class="card-icon">📖</div>
-        <h3>Tajweed</h3>
-        <p>
-          Learn the rules of Quranic pronunciation
-          and improve the quality of your recitation.
-        </p>
-      </div>
+        <div class="card">
+            <h3 id="tajweedTitle">Tajweed</h3>
+            <p id="tajweedText">
+                Learn the correct pronunciation and rules of Quran recitation.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="card-icon">📚</div>
-        <h3>Nazira</h3>
-        <p>
-          Develop fluent and accurate Quran reading
-          with proper pronunciation and guidance.
-        </p>
-      </div>
+        <div class="card">
+            <h3 id="naziraTitle">Nazira</h3>
+            <p id="naziraText">
+                Learn to read the Holy Quran correctly and fluently.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="card-icon">🌙</div>
-        <h3>Hifzul Quran</h3>
-        <p>
-          Memorize the Holy Quran through a structured
-          and consistent learning program.
-        </p>
-      </div>
+        <div class="card">
+            <h3 id="hifzTitle">Hifzul Quran</h3>
+            <p id="hifzText">
+                Memorize the Holy Quran with proper guidance and supervision.
+            </p>
+        </div>
 
     </div>
+</section>
 
-  </section>
+<!-- Information -->
+<section class="info">
 
+    <p id="age">
+        👤 Male: 7–40 years | Female: 7–30 years
+    </p>
 
-  <!-- About -->
+    <p id="admission">
+        Admission Fee: ৳2250
+    </p>
 
-  <section class="section about" id="about">
+    <p id="monthly">
+        Monthly Fee: ৳2500
+    </p>
 
-    <div class="section-title">
-      <h2>About School of Quran</h2>
-      <p>Quran education made accessible for everyone.</p>
-    </div>
+    <p id="classTime">
+        Class Time: According to student's convenience
+    </p>
 
-    <div class="about-box">
-
-      <p>
-        <span class="highlight">School of Quran</span>
-        is an online Quran learning academy based in
-        Sylhet, Bangladesh.
-      </p>
-
-      <br>
-
-      <p>
-        Our educational levels include
-        <span class="highlight">
-          Tajweed, Nazira and Hifzul Quran.
-        </span>
-      </p>
-
-      <br>
-
-      <p>
-        We aim to bring correct Quranic recitation
-        and Quranic knowledge to people in an organized
-        and accessible way.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- Students -->
-
-  <section class="section age-section">
-
-    <div class="section-title">
-      <h2>Who Can Join?</h2>
-      <p>We provide Quran education for both male and female students.</p>
-    </div>
-
-    <div class="age-cards">
-
-      <div class="age-card">
-        <h3>Male Students</h3>
-        <div class="age-number">7–40 Years</div>
-        <p>Quran education for boys and men.</p>
-      </div>
-
-      <div class="age-card">
-        <h3>Female Students</h3>
-        <div class="age-number">7–30 Years</div>
-        <p>Quran education for girls and women.</p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- Fees -->
-
-  <section class="section" id="fees">
-
-    <div class="section-title">
-      <h2>Fee Structure</h2>
-      <p>Simple and transparent fees.</p>
-    </div>
-
-    <div class="fee-table">
-
-      <div class="fee-row">
-        <span class="fee-name">Admission Fee</span>
-        <span class="fee-price">৳2,250</span>
-      </div>
-
-      <div class="fee-row">
-        <span class="fee-name">Monthly Fee</span>
-        <span class="fee-price">৳2,500</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- Class Schedule -->
-
-  <section class="section">
-
-    <div class="section-title">
-      <h2>Class Schedule</h2>
-      <p>Flexible learning according to your convenience.</p>
-    </div>
-
-    <div class="schedule-box">
-
-      <h3>Flexible Batches</h3>
-
-      <p>
-        Classes are arranged in batches according to
-        the convenience and availability of students.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- Teachers -->
-
-  <section class="section" id="teachers">
-
-    <div class="section-title">
-      <h2>Our Teachers</h2>
-      <p>Experienced Quran educators dedicated to teaching.</p>
-    </div>
-
-    <div class="teacher-count">
-
-      <div class="teacher-box">
-        <div class="teacher-number">4</div>
-        <h3>Male Teachers</h3>
-        <p>Hafiz • Maulana • Mufti</p>
-      </div>
-
-      <div class="teacher-box">
-        <div class="teacher-number">3</div>
-        <h3>Female Teachers</h3>
-        <p>Hafiza • Alima</p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- Mission -->
-
-  <section class="mission">
-
-    <div class="section">
-
-      <div class="section-title">
-        <h2>Our Mission</h2>
-      </div>
-
-      <div class="mission-content">
-
-        <p>
-          Our goal is to deliver correct Quranic recitation
-          and Quranic knowledge to people from all walks of life.
-        </p>
-
-        <br>
-
-        <p>
-          Many people cannot attend regular educational
-          institutions because of lack of time or opportunity.
-          We aim to bring structured, institutional-style
-          Quran education to them through flexible online learning.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- Contact -->
-
-  <section class="section" id="contact">
-
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>We would be happy to hear from you.</p>
-    </div>
-
-    <div class="contact-box">
-
-      <h3>School of Quran</h3>
-
-      <p>
+    <p id="location">
         📍 Sylhet, Bangladesh
-      </p>
+    </p>
 
-      <p>
+    <p id="whatsapp">
         📱 WhatsApp: +880 1790 056835
-      </p>
-
-      <a
-        href="https://wa.me/8801790056835"
-        class="whatsapp">
-        Contact on WhatsApp
-      </a>
-
-      <p style="margin-top:25px; color:#777;">
-        Online admission form and social media links
-        will be added soon.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- Footer -->
-
-  <footer>
-
-    <p>
-      <strong>School of Quran</strong>
     </p>
 
-    <p>
-      Tajweed • Nazira • Hifzul Quran
-    </p>
+</section>
 
-    <p style="margin-top:12px;">
-      © 2026 School of Quran. All Rights Reserved.
+<!-- Footer -->
+<footer>
+    <p id="footer">
+        © 2026 School of Quran. All Rights Reserved.
     </p>
+</footer>
 
-  </footer>
+
+<script>
+
+const translations = {
+
+    en: {
+
+        title: "School of Quran",
+
+        tagline: "Tajweed • Nazira • Hifzul Quran",
+
+        heroText: "Learn the Quran",
+
+        apply: "Apply Now",
+
+        aboutTitle: "About Us",
+
+        aboutText:
+        "An online academy dedicated to teaching the Holy Quran, Tajweed, Nazira and Hifzul Quran.",
+
+        coursesTitle: "Our Courses",
+
+        tajweedTitle: "Tajweed",
+
+        tajweedText:
+        "Learn the correct pronunciation and rules of Quran recitation.",
+
+        naziraTitle: "Nazira",
+
+        naziraText:
+        "Learn to read the Holy Quran correctly and fluently.",
+
+        hifzTitle: "Hifzul Quran",
+
+        hifzText:
+        "Memorize the Holy Quran with proper guidance and supervision.",
+
+        age:
+        "👤 Male: 7–40 years | Female: 7–30 years",
+
+        admission:
+        "Admission Fee: ৳2250",
+
+        monthly:
+        "Monthly Fee: ৳2500",
+
+        classTime:
+        "Class Time: According to student's convenience",
+
+        location:
+        "📍 Sylhet, Bangladesh",
+
+        whatsapp:
+        "📱 WhatsApp: +880 1790 056835",
+
+        footer:
+        "© 2026 School of Quran. All Rights Reserved."
+    },
+
+
+    bn: {
+
+        title: "স্কুল অব কুরআন",
+
+        tagline: "তাজবীদ • নাজেরা • হিফজুল কুরআন",
+
+        heroText: "কুরআন শিখুন",
+
+        apply: "ভর্তি আবেদন করুন",
+
+        aboutTitle: "আমাদের সম্পর্কে",
+
+        aboutText:
+        "পবিত্র কুরআন, তাজবীদ, নাজেরা ও হিফজুল কুরআন শিক্ষার জন্য একটি অনলাইন একাডেমি।",
+
+        coursesTitle: "আমাদের কোর্সসমূহ",
+
+        tajweedTitle: "তাজবীদ",
+
+        tajweedText:
+        "কুরআন তিলাওয়াতের সঠিক উচ্চারণ ও তাজবীদের নিয়ম-কানুন শিখুন।",
+
+        naziraTitle: "নাজেরা",
+
+        naziraText:
+        "সঠিক ও সাবলীলভাবে পবিত্র কুরআন পড়া শিখুন।",
+
+        hifzTitle: "হিফজুল কুরআন",
+
+        hifzText:
+        "অভিজ্ঞ শিক্ষকের তত্ত্বাবধানে সঠিক নিয়মে পবিত্র কুরআন মুখস্থ করুন।",
+
+        age:
+        "👤 পুরুষ: ৭–৪০ বছর | নারী: ৭–৩০ বছর",
+
+        admission:
+        "ভর্তি ফি: ৳২২৫০",
+
+        monthly:
+        "মাসিক ফি: ৳২৫০০",
+
+        classTime:
+        "ক্লাসের সময়: শিক্ষার্থীর সুবিধা অনুযায়ী",
+
+        location:
+        "📍 সিলেট, বাংলাদেশ",
+
+        whatsapp:
+        "📱 হোয়াটসঅ্যাপ: +৮৮০ ১৭৯০ ০৫৬৮৩৫",
+
+        footer:
+        "© ২০২৬ স্কুল অব কুরআন। সর্বস্বত্ব সংরক্ষিত।"
+    },
+
+
+    ar: {
+
+        title: "مدرسة القرآن",
+
+        tagline: "التجويد • الناظرة • حفظ القرآن",
+
+        heroText: "تعلّم القرآن",
+
+        apply: "قدّم طلب التسجيل",
+
+        aboutTitle: "من نحن",
+
+        aboutText:
+        "أكاديمية إلكترونية متخصصة في تعليم القرآن الكريم والتجويد والناظرة وحفظ القرآن.",
+
+        coursesTitle: "دوراتنا",
+
+        tajweedTitle: "التجويد",
+
+        tajweedText:
+        "تعلّم النطق الصحيح وقواعد تلاوة القرآن الكريم.",
+
+        naziraTitle: "الناظرة",
+
+        naziraText:
+        "تعلّم قراءة القرآن الكريم قراءة صحيحة وسليمة.",
+
+        hifzTitle: "حفظ القرآن",
+
+        hifzText:
+        "احفظ القرآن الكريم بإشراف المعلمين وبتوجيه صحيح.",
+
+        age:
+        "👤 الذكور: ٧–٤٠ سنة | الإناث: ٧–٣٠ سنة",
+
+        admission:
+        "رسوم التسجيل: ٢٢٥٠ تاكا",
+
+        monthly:
+        "الرسوم الشهرية: ٢٥٠٠ تاكا",
+
+        classTime:
+        "وقت الدرس: حسب وقت الطالب المناسب",
+
+        location:
+        "📍 سيلهيت، بنغلاديش",
+
+        whatsapp:
+        "📱 واتساب: +٨٨٠ ١٧٩٠ ٠٥٦٨٣٥",
+
+        footer:
+        "© ٢٠٢٦ مدرسة القرآن. جميع الحقوق محفوظة."
+    }
+
+};
+
+
+function changeLanguage(language) {
+
+    const t = translations[language];
+
+    for (const key in t) {
+
+        const element = document.getElementById(key);
+
+        if (element) {
+            element.textContent = t[key];
+        }
+
+    }
+
+    if (language === "ar") {
+
+        document.body.classList.add("rtl");
+
+        document.documentElement.lang = "ar";
+
+    } else {
+
+        document.body.classList.remove("rtl");
+
+        document.documentElement.lang = language;
+    }
+
+}
+
+</script>
 
 </body>
 </html>
